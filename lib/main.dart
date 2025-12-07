@@ -54,13 +54,11 @@ class _PortfolioHomeState extends State<PortfolioHome>
       }
 
       if (kIsWeb) {
-        // For Web - Download the PDF
         final ByteData data = await rootBundle.load(
           'assets/resume/Muhammed_Alif_Flutter_Developer_.pdf',
         );
         final Uint8List bytes = data.buffer.asUint8List();
 
-        // Create blob and download
         final blob = html.Blob([bytes], 'application/pdf');
         final url = html.Url.createObjectUrlFromBlob(blob);
         final anchor = html.AnchorElement(href: url)
@@ -78,7 +76,6 @@ class _PortfolioHomeState extends State<PortfolioHome>
           );
         }
       } else {
-        // For Mobile - Direct download link (You can update this with your hosted resume)
         const resumeUrl =
             'https://drive.google.com/uc?export=download&id=YOUR_DRIVE_FILE_ID';
         final Uri uri = Uri.parse(resumeUrl);
@@ -475,8 +472,6 @@ class _PortfolioHomeState extends State<PortfolioHome>
         _socialButton(Icons.email, 'mailto:Muhammedalif918@gmail.com'),
         _socialButton(Icons.phone, 'tel:+917736193302'),
         _socialButton(Icons.link, 'http://www.linkedin.com/in/ALIF908'),
-
-        //  RESUME DOWNLOAD BUTTON
         ElevatedButton.icon(
           onPressed: _openResume,
           icon: const Icon(Icons.download, size: 18),
@@ -855,6 +850,18 @@ class _PortfolioHomeState extends State<PortfolioHome>
         'status': 'Completed',
         'tech': ['Flutter', 'Dart', 'UI/UX', 'Animations'],
         'icon': Icons.shopping_bag,
+        'images': [
+          Imgcons.olxSplash,
+          Imgcons.olxLogin,
+          Imgcons.olxOtp,
+          Imgcons.olxHome,
+          Imgcons.olxChat,
+          Imgcons.olxCategories,
+          Imgcons.olxMyAds,
+          Imgcons.olxAccount,
+          Imgcons.olxSettings,
+          Imgcons.olxLogout,
+        ],
       },
     ];
 
